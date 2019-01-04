@@ -6,6 +6,20 @@
   <h1>{{ article.title }}</h1>
     <p>{{ article.body }}</p>
     <hr>
+
+    {% if article.liked is not null %}
+
+      {% if article.liked == true %}
+          <i class="fas fa-heart"></i>
+      {% elseif article.liked == false  %}
+        <i class="far fa-heart"></i>
+      {% endif %}
+
+    {% endif %}
+
+    <button id="1" class="like-button btn btn-success" data-id="{{ article.id }}" >Like</button>
+    <button id="0" class="like-button btn btn-danger" data-id="{{ article.id }}">Dislike</button><br><br>
+
     <a href="/">Go Back</a>
 {% endblock %}
 

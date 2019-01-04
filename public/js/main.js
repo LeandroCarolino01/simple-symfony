@@ -13,3 +13,22 @@ if (articles) {
         }
     });
 }
+
+// Rijk made this
+var likeButtons = $('.like-button');
+
+likeButtons.on('click', function(){
+   var likeStatus = $(this).attr('id');
+   var articleId = $(this).data('id');
+
+   var postData = {liked: likeStatus};
+   $.ajax({
+       type: "POST",
+       url: '/article/like/' + articleId,
+       data: postData,
+       success: function() {
+           location.reload();
+       }
+    });
+});
+

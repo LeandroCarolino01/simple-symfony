@@ -19,14 +19,17 @@ class Article
    /**
     * @ORM\Column(type="text", length=100)
     */
-
    private $title;
 
    /**
     * @ORM\Column(type="text")
     */
-
    private $body;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+   private $liked;
 
    //Getters and Setters
     public function getId(){
@@ -49,5 +52,19 @@ class Article
         $this->body = $body;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getLiked()
+    {
+        return $this->liked;
+    }
 
+    /**
+     * @param mixed $liked
+     */
+    public function setLiked(bool $liked): void
+    {
+        $this->liked = $liked;
+    }
 }
